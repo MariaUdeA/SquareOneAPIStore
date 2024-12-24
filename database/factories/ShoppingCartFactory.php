@@ -20,8 +20,7 @@ class ShoppingCartFactory extends Factory
     {
         $userIds = User::all()->pluck("id")->toArray();
         return [
-            'user_id'=> $this->faker->unique()->randomElement($userIds),
-            'created_date' => now(),
+            'user_id'=> User::factory(),//$this->faker->unique()->randomElement($userIds),
             'status' => fake()->word(),
         ];
     }

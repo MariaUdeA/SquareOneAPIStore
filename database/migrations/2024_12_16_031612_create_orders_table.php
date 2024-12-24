@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\User::class);
             $table->timestamp('order_date');
-            $table->integer('total_amount');
+            $table->decimal('total_amount',10,2);
             $table->string('order_status');
             $table->string('payment_method');
             $table->string('shipping_address');
+            $table->timestamps();
         });
     }
 

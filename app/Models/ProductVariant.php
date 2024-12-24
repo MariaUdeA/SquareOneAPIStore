@@ -10,6 +10,13 @@ class ProductVariant extends Model
     /** @use HasFactory<\Database\Factories\ProductVariantFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        "product_id",
+        "color",
+        "size",
+        "stock_quantity",
+    ];
+
     public function product()
     {
         return $this->belongsTo(Product::class);
@@ -17,12 +24,12 @@ class ProductVariant extends Model
 
     public function orderItem()
     {
-        return $this->belongsTo(OrderItem::class);
+        return $this->hasMany(OrderItem::class);
     }
 
     public function cartItem()
     {
-        return $this->belongsTo(CartItem::class);
+        return $this->hasOne(CartItem::class);
     }
 
 }

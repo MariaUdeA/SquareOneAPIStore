@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\ShoppingCart::class);
             $table->foreignIdFor(\App\Models\ProductVariant::class);
             $table->integer('quantity');
-            $table->string('unit_price');
+            $table->decimal('unit_price',10,2);
+            $table->timestamps();
         });
     }
 

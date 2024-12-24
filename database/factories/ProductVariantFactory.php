@@ -21,8 +21,8 @@ class ProductVariantFactory extends Factory
         return [
             'product_id'=> $this->faker->randomElement($productIds), //because it is one to many, no issue repeating
             'color' => fake()->colorName(),
-            'size' => fake()->word(),
-            'stock_quantity' => fake()->randomNumber(2,true),
+            'size' => $this->faker->randomElement(['XS','S', 'M', 'L', 'XL']),
+            'stock_quantity' => $this->faker->numberBetween(1, 100),
         ];
     }
 }

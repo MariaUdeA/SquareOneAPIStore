@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('product_variants', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\ShoppingCart::class);
+            $table->foreignIdFor(\App\Models\Product::class);
             $table->string('color');
             $table->string('size');
             $table->integer('stock_quantity');
-
+            $table->timestamps();
         });
     }
 

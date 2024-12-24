@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('shopping_carts', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\User::class);
-            $table->timestamp('created_date');
-            $table->string('status');
+            $table->string(column: 'status');
+            $table->timestamps();
         });
     }
 

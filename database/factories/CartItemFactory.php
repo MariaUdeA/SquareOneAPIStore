@@ -21,10 +21,10 @@ class CartItemFactory extends Factory
         $cartIds = ShoppingCart::all()->pluck("id")->toArray();
         $variantIds = ProductVariant::all()->pluck("id")->toArray();
         return [
-            'cart_id'=> $this->faker->randomElement($cartIds), //because it is one to many, no issue repeating
-            'variant_id'=> $this->faker->unique()->randomElement($variantIds), //since it is one to one, can't repeat
+            'shopping_cart_id'=> $this->faker->randomElement($cartIds), //because it is one to many, no issue repeating
+            'product_variant_id'=>ProductVariant::factory(),// $this->faker->unique->randomElement($variantIds), //since it is one to one
             'quantity' => fake()->randomNumber(2,true),
-            'price' => fake()->randomNumber(4,true),
+            'unit_price' => fake()->randomFloat(2,0,10000),
         ];
     }
 }

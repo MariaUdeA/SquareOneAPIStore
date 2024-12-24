@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\Order::class);
             $table->foreignIdFor(\App\Models\ProductVariant::class);
             $table->integer('quantity');
-            $table->string('price');
+            $table->decimal('price',10,2);
+            $table->timestamps();
         });
     }
 

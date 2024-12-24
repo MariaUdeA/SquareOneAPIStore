@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class CartItem extends Model
 {
+    protected $fillable = [
+        "shopping_cart_id",
+        "product_variant_id",
+        "quantity",
+        "unit_price",
+    ];
+
     /** @use HasFactory<\Database\Factories\CartItemFactory> */
     use HasFactory;
 
@@ -15,6 +22,6 @@ class CartItem extends Model
     }
 
     public function variant(){
-        return $this->hasOne(ProductVariant::class);
+        return $this->belongsTo(ProductVariant::class, 'product_variant_id', 'id');
     }
 }

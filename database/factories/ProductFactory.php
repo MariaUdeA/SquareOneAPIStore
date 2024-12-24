@@ -19,8 +19,8 @@ class ProductFactory extends Factory
         return [
             'name' => fake()->words(3, true),
             'description' => fake()->sentence(),
-            'price' => fake()->randomNumber(4,true),
-            'other_attributes'=>fake()->paragraph()
+            'price' => fake()->randomFloat(2,0,10000),
+            'other_attributes'=>json_encode(['material'=>fake()->word(),'brand'=>fake()->word])
         ];
     }
 }
