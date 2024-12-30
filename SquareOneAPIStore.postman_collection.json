@@ -235,7 +235,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"variant_id\":16,\r\n    \"quantity\":30\r\n}",
+							"raw": "{\r\n    \"variant_id\":19,\r\n    \"quantity\":3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -507,7 +507,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"price\":37.5,\r\n    \"variants\":[\r\n        {\r\n            \"id\": 151,\r\n            \"product_id\": 52,\r\n            \"color\": \"Lemon\",\r\n            \"size\": \"XS\",\r\n            \"stock_quantity\": 1\r\n        }\r\n    ]\r\n    \r\n}",
+							"raw": "{\r\n    \"price\":37.5,\r\n    \"variants\":[\r\n        {\r\n            \"id\": 87,\r\n            \"color\": \"Lemon\",\r\n            \"size\": \"XS\",\r\n            \"stock_quantity\": 1\r\n        }\r\n    ]\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -515,7 +515,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/v1/products/4",
+							"raw": "http://127.0.0.1:8000/api/v1/products/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -528,7 +528,7 @@
 								"api",
 								"v1",
 								"products",
-								"4"
+								"1"
 							]
 						}
 					},

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Models\CartItem;
-use Database\Factories\OrderItemFactory;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Log;
@@ -83,10 +82,14 @@ class OrderController extends Controller
                     ],400);
             }
 
+            $total_amount=$cart_items->sum(function($cart_item) {
+                return $cart_item->unit_price*$cart_item->quantity;
+            });
+
             $order=Order::create([
                 "user_id"=> $user->id,
                 "order_date"=>now(),
-                "total_amount"=>0,
+                "total_amount"=>$total_amount,
                 "order_status"=> $cart->status,
                 'payment_method' => $request->payment_method,
                 'shipping_address' => $request->shipping_address
@@ -100,11 +103,6 @@ class OrderController extends Controller
                     "price"=> $cart_item->unit_price,
                 ]);
             }
-
-            $total_amount=$cart_items->sum(function($cart_item) {
-                return $cart_item->unit_price*$cart_item->quantity;
-            });
-            $order->total_amount=$total_amount;
 
             //Now we delete the shopping cart and its cart items :)
             $cart_items=CartItem::where("shopping_cart_id",$cart->id);

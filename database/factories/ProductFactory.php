@@ -20,7 +20,10 @@ class ProductFactory extends Factory
             'name' => fake()->words(3, true),
             'description' => fake()->sentence(),
             'price' => fake()->randomFloat(2,0,10000),
-            'other_attributes'=>json_encode(['material'=>fake()->word(),'brand'=>fake()->word])
+            'other_attributes' => ["material" => $this->faker->randomElement(['Silk','Wool', 'Linen', 'Cashemere', 'Cotton']),
+                                    "brand" => $this->faker->randomElement(['Gucci','Prada', 'Louis Vuitton', 'Denim', 'Versace'])],
+
+
         ];
     }
 }

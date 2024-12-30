@@ -139,7 +139,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Update product TO DO:Update with variants
+     * Update product with respective variants
      * @param \Illuminate\Http\Request $request
      * @param int $id
      * @return mixed|\Illuminate\Http\JsonResponse
@@ -150,9 +150,10 @@ class ProductController extends Controller
             
             //Find Product in Database.
             $product = Product::findOrFail($id);
+            $productData = $request->only(['name', 'description', 'price', 'other_attributes']);
 
             //Update the product found with the data sent in the body of the request.
-            $product->update($request->all());
+            $product->update($productData);
             
             $product_variants=$product->variants();
 
@@ -165,6 +166,7 @@ class ProductController extends Controller
                     }
                 }
             }
+
             DB::commit();
             return response()->json($product->load('variants'), 200);
         } catch (ModelNotFoundException $e) {
